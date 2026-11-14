@@ -17,21 +17,22 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&family=Playpen+Sans:wght@300..700&display=swap">
 <style>
-/* Layout: a night walk down one street. The round Sáng logo glowing like a lit sign, the two food photos, the four elements, one big statement line, then a door-sign visit card. Brand colours from Logo A (UV blue, hot pink, cyan on night). Single dark look by choice. */
+/* Layout: a night walk down one street. The round badge logo among its blue leaves, the two food photos, the menus as badge-like cards, the four elements, one statement line, then the opening-hours card. Colours sampled from the badge logo; handwritten type like the printed menus. Single dark look by choice. */
 :root {
-  --night: #0a0616;
-  --night-2: #130b30;
-  --rule: #2c2163;
-  --ink: #f7f0ff;
-  --muted: #b4a9d8;
-  --uv: #1d01bb;
-  --pink: #fd56fc;
-  --pink-pale: #ffd4fe;
-  --cyan: #09cbe4;
-  --display: "Archivo", "Arial Black", sans-serif;
-  --body: "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif;
+  --night: #0e0f27;
+  --night-2: #161a4d;
+  --rule: #2a2f72;
+  --ink: #f6f3ff;
+  --muted: #b7b9e3;
+  --uv: #121bae;
+  --pink: #ff39e2;
+  --pink-pale: #ffcaf4;
+  --cyan: #6ed5ff;
+  --script: "Playwrite VN", "Segoe Script", cursive;
+  --body: "Playpen Sans", "Comic Sans MS", "Trebuchet MS", sans-serif;
+  --display: var(--body);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -78,25 +79,9 @@ h2 {
 
 /* ---------- Hero ---------- */
 .hero { position: relative; overflow: hidden; isolation: isolate; }
-.hero-bg {
-  position: absolute; inset: -80px; z-index: -3;
-  background: var(--night) url("images/hero-glow.jpg") center 30% / cover no-repeat;
-  filter: blur(56px) saturate(1.5) brightness(0.5);
-}
-.hero::before {
-  content: ""; position: absolute; inset: 0; z-index: -2;
-  background:
-    radial-gradient(120% 70% at 50% 0%, transparent 0%, color-mix(in srgb, var(--night) 55%, transparent) 60%),
-    linear-gradient(to bottom, transparent 55%, var(--night) 100%);
-}
-.ribbon {
-  position: absolute; left: 0; right: 0; top: clamp(100px, 17vw, 220px); z-index: -1;
-  width: 100%; height: clamp(160px, 30vw, 340px);
-  opacity: 0.35; pointer-events: none;
-}
-.ribbon .glow { stroke: var(--cyan); stroke-width: 16; filter: blur(8px); opacity: 0.7; }
-.ribbon .tube { stroke: var(--cyan); stroke-width: 7; }
-.ribbon .core { stroke: var(--pink-pale); stroke-width: 2; }
+.leaf { position: absolute; z-index: -1; height: auto; pointer-events: none; opacity: 0.85; }
+.leaf-tl { top: 0; left: 0; width: clamp(200px, 36vw, 540px); }
+.leaf-br { right: 0; top: clamp(260px, 38vw, 520px); width: clamp(180px, 30vw, 460px); }
 
 .topbar {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
@@ -455,16 +440,71 @@ h2 {
   html { scroll-behavior: auto; }
   .btn, .ig, .vid { transition: none; }
 }
+
+/* ---------- Handwritten type and badge-style cards (matches the logo and printed menus) ---------- */
+h2, .menu-card h3, .venue h3, .els h3, .course-name {
+  font-family: var(--script); font-weight: 400; font-stretch: normal; letter-spacing: 0; text-transform: none;
+}
+h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
+.shift h2 { font-size: clamp(1.9rem, 4.8vw, 3.6rem); line-height: 1.55; max-width: 22ch; }
+.label { font-weight: 500; letter-spacing: 0.14em; }
+.tagline { font-weight: 400; }
+.oval, .item-price, .slots dd, .hours { font-family: var(--body); font-weight: 600; font-stretch: normal; letter-spacing: 0; }
+.btn { text-transform: none; letter-spacing: 0.01em; font-size: 1rem; }
+.hero-photos img, .vid { border-radius: 20px; }
+
+.menus h2 { text-align: center; }
+.menu-card {
+  align-items: center; text-align: center; gap: 14px;
+  padding: clamp(36px, 5vw, 56px) clamp(26px, 4vw, 52px);
+  background: color-mix(in srgb, var(--uv) 26%, var(--night));
+  border: 0;
+  border-radius: 28px;
+  outline: 1.5px solid color-mix(in srgb, var(--cyan) 45%, transparent);
+  outline-offset: -12px;
+  box-shadow: 0 30px 90px -50px color-mix(in srgb, var(--uv) 95%, transparent);
+}
+.menu-card h3 {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 2.7rem); line-height: 1.55;
+  color: var(--pink);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--pink) 45%, transparent);
+}
+.divider { display: block; width: 190px; max-width: 70%; height: auto; margin-top: -16px; fill: none; stroke: var(--cyan); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.menu-card > .label { margin-top: -2px; }
+.course { justify-items: center; }
+.course-name { font-size: 1.5rem; line-height: 1.6; color: var(--cyan); margin-bottom: 0 !important; }
+.dish { font-weight: 500; }
+.desc { margin-inline: auto; }
+.extras { justify-content: center; }
+.prices { justify-items: center; width: 100%; }
+.price { justify-content: center; }
+.free { justify-self: center; }
+.oval { border-width: 2.5px; }
+.carte { width: 100%; text-align: left; margin-top: 8px; }
+.carte .course { justify-items: stretch; }
+.carte .course-name { text-align: center; margin-bottom: 6px !important; }
+.item-row { grid-template-columns: minmax(0, max-content) minmax(14px, 1fr) auto; align-items: end; column-gap: 10px; }
+.lead { height: 0; margin-bottom: 0.5em; border-bottom: 2px dotted color-mix(in srgb, var(--cyan) 50%, transparent); }
+.item .desc { margin-inline: 0; }
+.menu-key { text-align: center; }
+
+.els h3 { margin-top: 8px; font-size: 1.3rem; line-height: 1.6; color: var(--pink-pale); }
+.door {
+  border: 0;
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--uv) 22%, var(--night));
+  outline: 1.5px solid color-mix(in srgb, var(--cyan) 40%, transparent);
+  outline-offset: -12px;
+}
+.venue h3 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); line-height: 1.6; color: var(--pink-pale); }
+.shift { background: color-mix(in srgb, var(--uv) 16%, var(--night)); }
 </style>
 </head>
 <body>
 <header class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <svg class="ribbon" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke-linecap="round">
-    <path class="glow" d="M-40 190 C 120 60, 230 280, 400 170 S 650 40, 820 170 S 1080 300, 1260 120"/>
-    <path class="tube" d="M-40 190 C 120 60, 230 280, 400 170 S 650 40, 820 170 S 1080 300, 1260 120"/>
-    <path class="core" d="M-40 190 C 120 60, 230 280, 400 170 S 650 40, 820 170 S 1080 300, 1260 120"/>
-  </svg>
+  <img class="leaf leaf-tl" src="images/leaf-tl.webp" alt="" aria-hidden="true">
+  <img class="leaf leaf-br" src="images/leaf-br.webp" alt="" aria-hidden="true">
 
   <div class="wrap">
     <div class="topbar">
@@ -502,8 +542,9 @@ h2 {
       <h2>Menus</h2>
       <div class="menu-cards">
         <article class="menu-card">
-          <p class="label">10.11 – 20.11</p>
           <h3>Lunch Offer</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">10.11 – 20.11</p>
           <div class="course">
             <p class="dish" lang="vi">Bún Chả</p>
             <p class="desc">Traditional Hanoi-style charcoal-grilled pork.</p>
@@ -519,8 +560,9 @@ h2 {
           </div>
         </article>
         <article class="menu-card">
-          <p class="label">3-course menu</p>
           <h3>Fine Dining</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">3-course menu</p>
           <div class="course">
             <p class="course-name">Starter</p>
             <p class="dish">Crispy Chicken Wonton</p>
@@ -545,23 +587,24 @@ h2 {
           </div>
         </article>
         <article class="menu-card menu-wide">
-          <p class="label">À la carte</p>
           <h3>Fine Dining</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">À la carte</p>
           <div class="carte">
             <div class="carte-col">
               <div class="course">
                 <p class="course-name">Starter</p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish">1. Summer Rolls</span><span class="item-price">€12</span></p>
+                <p class="item-row"><span class="dish">1. Summer Rolls</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
                 <p class="desc">Dill smoked salmon / Thai basil smoked tofu × 2 kpl.<br>Fresh herbs – mint, coriander, basil, dill, protein with dip of your choice: vegan peanut sauce, vegan/non vegan fish sauce.</p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">2. Crispy Wonton Chicken</span><span class="item-price">€12</span></p>
+                <p class="item-row"><span class="dish">2. Crispy Wonton Chicken</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
                 <p class="desc">5 kpl with housemade classic sweet &amp; sour chili sauce.</p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">3. Vegan Kimchi</span><span class="item-price">€8</span></p>
+                <p class="item-row"><span class="dish">3. Vegan Kimchi</span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
               </div>
                 </div>
               </div>
@@ -569,7 +612,7 @@ h2 {
                 <p class="course-name">Main course</p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish"><span lang="vi">Bún Chả</span> – Pork Classic / Mushrooms / Tofu Set</span><span class="item-price">€25</span></p>
+                <p class="item-row"><span class="dish"><span lang="vi">Bún Chả</span> – Pork Classic / Mushrooms / Tofu Set</span><span class="lead" aria-hidden="true"></span><span class="item-price">€25</span></p>
                 <p class="desc">Mix exotic herbs &amp; salad, bean sprouts, rice noodle, sweet &amp; sour fish/non fish sauce.</p>
               </div>
                 </div>
@@ -580,11 +623,11 @@ h2 {
                 <p class="course-name">Dessert</p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish">Gelato of the Day</span><span class="item-price">1 scoop €5<br>2 scoops €9</span></p>
+                <p class="item-row"><span class="dish">Gelato of the Day</span><span class="lead" aria-hidden="true"></span><span class="item-price">1 scoop €5<br>2 scoops €9</span></p>
                 <p class="desc">or chocolate / vanilla / matcha / strawberry / banana bread / mango.</p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">Soufflé Pancakes</span><span class="item-price">€10</span></p>
+                <p class="item-row"><span class="dish">Soufflé Pancakes</span><span class="lead" aria-hidden="true"></span><span class="item-price">€10</span></p>
                 <p class="desc">Biscoff / chocolate / matcha / UBE / berries / banana or mango salted caramel.</p>
               </div>
                 </div>
@@ -593,16 +636,16 @@ h2 {
                 <p class="course-name">Drinks</p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish">Creamy Strawberry Margarita 0%</span><span class="item-price">€12</span></p>
+                <p class="item-row"><span class="dish">Creamy Strawberry Margarita 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">London dry Gin Tonic 0%</span><span class="item-price">€12</span></p>
+                <p class="item-row"><span class="dish">London dry Gin Tonic 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">Sparkling 0% <span class="desc-inline">(25cl)</span></span><span class="item-price">€8</span></p>
+                <p class="item-row"><span class="dish">Sparkling 0% <span class="desc-inline">(25cl)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">Chardonnay 0% <span class="desc-inline">(25cl)</span></span><span class="item-price">€7</span></p>
+                <p class="item-row"><span class="dish">Chardonnay 0% <span class="desc-inline">(25cl)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€7</span></p>
               </div>
                 </div>
               </div>
