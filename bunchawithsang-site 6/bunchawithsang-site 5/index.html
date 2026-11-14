@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bún Chả with Sáng</title>
+<meta name="description" content="Bún Chả with Sáng, Hermannin Rantatie 25A, Verkkosaari, Helsinki. Charcoal-grilled bún chả, soufflé pancakes, alcohol-free drinks and Finnish light art by Janne Parviainen.">
+<meta name="theme-color" content="#0a0616">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bunchawithsang.com/">
+<meta property="og:title" content="Bún Chả with Sáng">
+<meta property="og:description" content="Charcoal-grilled bún chả and Finnish light art by Janne Parviainen. Hermannin Rantatie 25A, Verkkosaari, Helsinki.">
+<meta property="og:image" content="https://bunchawithsang.com/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&family=Playpen+Sans:wght@300..700&display=swap">
+<style>
+/* Layout: a night walk down one street. The round badge logo among its blue leaves, the two food photos, the menus as badge-like cards, the four elements, one statement line, then the opening-hours card. Colours sampled from the badge logo; handwritten type like the printed menus. Single dark look by choice. */
+:root {
+  --night: #0e0f27;
+  --night-2: #161a4d;
+  --rule: #2a2f72;
+  --ink: #f6f3ff;
+  --muted: #b7b9e3;
+  --uv: #121bae;
+  --pink: #ff39e2;
+  --pink-pale: #ffcaf4;
+  --cyan: #6ed5ff;
+  --script: "Playwrite VN", "Segoe Script", cursive;
+  --body: "Playpen Sans", "Comic Sans MS", "Trebuchet MS", sans-serif;
+  --display: var(--body);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 2px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  font-family: var(--body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin: 0;
+}
+h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: clamp(1.9rem, 4.4vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+.leaf { position: absolute; z-index: -1; height: auto; pointer-events: none; opacity: 0.85; }
+.leaf-tl { top: 0; left: 0; width: clamp(200px, 36vw, 540px); }
+.leaf-br { right: 0; top: clamp(260px, 38vw, 520px); width: clamp(180px, 30vw, 460px); }
+
+.topbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 10px 20px;
+  padding-block: 20px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.topbar strong { color: var(--ink); font-weight: 600; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 55%, transparent);
+  color: var(--cyan);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.6875rem;
+}
+.pill i { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+
+.hero-inner {
+  padding-top: clamp(24px, 6vw, 72px);
+  padding-bottom: clamp(56px, 9vw, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 40px);
+  align-items: center;
+}
+@media (min-width: 820px) {
+  .hero-inner { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: clamp(40px, 6vw, 88px); }
+  .hero-photos { grid-column: 1 / -1; }
+}
+.logo { margin: 0; width: min(100%, 290px); }
+@media (min-width: 820px) { .logo { width: min(100%, 470px); } }
+.logo img {
+  display: block; width: 100%; height: auto;
+  filter:
+    drop-shadow(0 0 22px color-mix(in srgb, var(--pink) 30%, transparent))
+    drop-shadow(0 0 70px color-mix(in srgb, var(--uv) 85%, transparent));
+  animation: flick 2.4s 0.2s 1 both;
+}
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+@keyframes flick {
+  0%, 100% { opacity: 1; }
+  5% { opacity: 0.25; }
+  8% { opacity: 1; }
+  12% { opacity: 0.45; }
+  14% { opacity: 1; }
+  40% { opacity: 1; }
+  42% { opacity: 0.7; }
+  44% { opacity: 1; }
+}
+.hero-copy { display: grid; gap: 22px; min-width: 0; justify-items: start; }
+.tagline {
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  line-height: 1.45;
+  max-width: 30ch;
+  text-wrap: pretty;
+  color: var(--ink);
+}
+.tagline q { quotes: "\201C" "\201D"; color: var(--pink-pale); }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; }
+.credit { margin: 0; font-size: 1.0625rem; color: var(--muted); }
+.credit b { font-weight: 600; color: var(--ink); }
+.hero-photos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: clamp(8px, 2vw, 24px);
+}
+@media (min-width: 760px) {
+  .hero-photos { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+}
+.hero-photos figure { margin: 0; min-width: 0; }
+.hero-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--night-2);
+}
+.hp-main img {
+  aspect-ratio: 3 / 2;
+  object-position: 50% 30%;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--pink) 30%, transparent), 0 30px 100px -30px color-mix(in srgb, var(--pink) 55%, transparent);
+}
+.hp-dish img {
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cyan) 30%, transparent), 0 30px 100px -30px color-mix(in srgb, var(--cyan) 45%, transparent);
+}
+@media (min-width: 760px) { .hp-dish img { aspect-ratio: auto; } }
+
+/* ---------- Menus ---------- */
+.menus { padding-block: clamp(8px, 2vw, 24px) clamp(40px, 6vw, 72px); }
+.menus h2 { margin-bottom: clamp(24px, 4vw, 40px); }
+.menu-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (min-width: 820px) { .menu-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.menu-card {
+  min-width: 0;
+  display: flex; flex-direction: column; gap: 18px;
+  padding: clamp(24px, 4vw, 40px);
+  background: var(--night-2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.menu-card h3 {
+  margin: -8px 0 0;
+  font-family: var(--display); font-weight: 800; font-stretch: 125%;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--pink);
+  text-wrap: balance;
+}
+.course { display: grid; gap: 4px; }
+.course p { margin: 0; }
+.course-name { color: var(--cyan); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px !important; }
+.dish { font-size: 1.1875rem; font-weight: 600; line-height: 1.4; }
+.desc, .desc-inline { color: var(--muted); font-weight: 400; font-size: 0.9375rem; line-height: 1.5; }
+.desc { max-width: 44ch; }
+.or { color: var(--muted); font-size: 0.875rem; margin-block: 2px !important; }
+.extras { margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-weight: 500; }
+.extras span { display: inline-flex; align-items: center; gap: 8px; }
+.mi { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--cyan); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.price { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.oval {
+  display: inline-block;
+  padding: 0.3em 0.75em;
+  border: 2px solid var(--pink);
+  border-radius: 50%;
+  transform: rotate(-4deg);
+  font-family: var(--display); font-weight: 800; font-stretch: 125%;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--pink) 30%, transparent), inset 0 0 14px color-mix(in srgb, var(--pink) 18%, transparent);
+}
+.price s { color: var(--muted); font-size: 1rem; }
+.price-note { color: var(--muted); font-size: 0.9375rem; line-height: 1.45; }
+.menu-key { margin: 16px 0 0; color: var(--muted); font-size: 0.875rem; }
+.prices { margin-top: auto; padding-top: 8px; display: grid; gap: 16px; }
+.prices .price { margin-top: 0; padding-top: 0; }
+.price-main { color: var(--ink); font-size: 1.125rem; font-weight: 600; }
+.tag { margin: 4px 0 0; color: var(--muted); font-size: 0.875rem; }
+.free {
+  margin: 0;
+  justify-self: start;
+  padding: 7px 14px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 50%, transparent);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+}
+@media (min-width: 820px) { .menu-wide { grid-column: 1 / -1; } }
+.carte { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+@media (min-width: 820px) { .carte { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 72px); } }
+.carte-col { display: grid; gap: 28px; align-content: start; min-width: 0; }
+.items { display: grid; gap: 16px; }
+.item-row { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: 16px; }
+.item-row .dish { min-width: 0; }
+.item-price {
+  font-family: var(--display); font-weight: 800; font-stretch: 125%;
+  font-size: 1.0625rem; letter-spacing: -0.01em; line-height: 1.35;
+  text-align: right; white-space: nowrap;
+  color: var(--pink-pale);
+  font-variant-numeric: tabular-nums;
+}
+.item .desc { margin: 4px 0 0; max-width: 52ch; }
+
+/* ---------- Four elements ---------- */
+.elements { padding-block: clamp(40px, 6vw, 72px) clamp(64px, 9vw, 112px); }
+.elements h2 { margin-bottom: clamp(32px, 5vw, 56px); }
+.elements h2 span { color: var(--pink); }
+.els {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.els li {
+  min-width: 0;
+  display: grid; align-content: start; gap: 12px;
+  padding-block: 28px;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 620px) {
+  .els { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+}
+@media (min-width: 980px) {
+  .els { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 0; }
+  .els li { border-top: 0; border-left: 1px solid var(--rule); padding: 8px 28px 8px; }
+  .els li:first-child { border-left: 0; padding-left: 0; }
+  .els li:last-child { padding-right: 0; }
+}
+.els svg { width: 52px; height: 52px; stroke: var(--cyan); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.els svg text { fill: var(--cyan); stroke: none; font-family: var(--body); font-weight: 600; }
+.els h3 {
+  margin: 6px 0 0;
+  font-family: var(--body);
+  font-size: 0.875rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  line-height: 1.4;
+}
+.els p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.6; max-width: 36ch; }
+
+/* ---------- Videos ---------- */
+.videos { padding-block: 0 clamp(64px, 9vw, 112px); }
+.videos h2 { margin-bottom: clamp(28px, 4vw, 44px); }
+.vids { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 700px) {
+  .vids { max-width: 560px; }
+}
+.vid {
+  position: relative;
+  display: grid; place-items: center;
+  max-width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--uv);
+  background-image: repeating-linear-gradient(168deg, transparent 0 10px, color-mix(in srgb, var(--cyan) 16%, transparent) 10px 11px);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--pink) 30%, transparent), 0 30px 90px -40px color-mix(in srgb, var(--pink) 60%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.vid-wide { aspect-ratio: 16 / 9; }
+.vid:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--pink), 0 30px 90px -30px color-mix(in srgb, var(--pink) 75%, transparent); }
+.vid:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+.play {
+  width: clamp(44px, 5vw, 56px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--pink);
+  display: grid; place-items: center;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--pink) 25%, transparent), 0 0 30px color-mix(in srgb, var(--pink) 70%, transparent);
+}
+.play svg { width: 42%; height: 42%; margin-left: 8%; fill: var(--uv); }
+.vid-meta {
+  position: absolute; left: 14px; right: 14px; bottom: 12px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.875rem; font-weight: 600;
+}
+.vid-meta .label { color: var(--cyan); }
+.vid-meta span:last-child { white-space: nowrap; }
+
+/* ---------- Transformation ---------- */
+.shift {
+  background: var(--night-2);
+  border-block: 1px solid var(--rule);
+  padding-block: clamp(64px, 9vw, 112px);
+}
+.shift h2 { max-width: 20ch; font-size: clamp(2.1rem, 5.6vw, 4.4rem); }
+.shift h2 span { color: var(--pink); }
+
+/* ---------- Booking ---------- */
+.book { padding-block: clamp(56px, 8vw, 104px) clamp(24px, 4vw, 48px); }
+.book h2 { margin-bottom: clamp(24px, 4vw, 40px); }
+.book-frame { max-width: 760px; min-width: 0; }
+.book-frame iframe { display: block; width: 100%; border: 0; border-radius: 6px; }
+.book-note { margin: 14px 0 0; color: var(--muted); font-size: 0.9375rem; }
+.book-note a { color: var(--cyan); }
+
+/* ---------- Visit ---------- */
+.visit { padding-block: clamp(64px, 9vw, 120px); }
+.door {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--night-2);
+  padding: clamp(28px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cyan) 8%, transparent), 0 30px 90px -40px color-mix(in srgb, var(--cyan) 40%, transparent);
+}
+@media (min-width: 820px) {
+  .door { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; column-gap: clamp(40px, 6vw, 80px); }
+}
+.times { display: grid; gap: 28px; min-width: 0; }
+.venue { display: grid; gap: 10px; }
+.venue h3 {
+  margin: 0;
+  font-family: var(--display); font-weight: 800; font-stretch: 125%;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  letter-spacing: -0.01em;
+  color: var(--pink-pale);
+}
+.slots { margin: 0; display: grid; }
+.slots div {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-block: 12px;
+  border-top: 1px solid var(--rule);
+}
+.slots div:last-child { border-bottom: 1px solid var(--rule); }
+.slots dt { display: grid; gap: 2px; line-height: 1.35; }
+.slots dt b { font-weight: 600; }
+.slots dt span { color: var(--muted); font-size: 0.9375rem; }
+.slots dd {
+  margin: 0;
+  font-family: var(--display); font-weight: 800; font-stretch: 125%;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.door-end { display: grid; gap: 26px; justify-items: start; min-width: 0; }
+.place { display: grid; gap: 8px; }
+.place p:not(.label) { margin: 0; font-size: 1.0625rem; line-height: 1.5; }
+.place strong { font-weight: 600; }
+.ig {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--ink); text-decoration: none;
+  font-weight: 600; font-size: 1.125rem;
+  transition: color 0.2s ease;
+}
+.ig svg { color: var(--cyan); flex: none; }
+.ig:hover { color: var(--cyan); }
+.soon {
+  margin: 0;
+  font-family: var(--display); font-weight: 800; font-stretch: 125%;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--pink-pale);
+}
+.btn {
+  justify-self: start;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 20px;
+  border: 1px solid var(--cyan);
+  border-radius: 999px;
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn:hover { background: var(--cyan); color: var(--night); }
+.btn-solid { background: var(--pink); border-color: var(--pink); color: var(--night); }
+.btn-solid:hover { background: var(--pink-pale); border-color: var(--pink-pale); color: var(--night); }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Footer ---------- */
+.foot { border-top: 1px solid var(--rule); padding-block: 32px 40px; }
+.foot-meta {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  color: var(--muted); font-size: 0.875rem;
+}
+.foot-meta p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo img { animation: none; }
+  html { scroll-behavior: auto; }
+  .btn, .ig, .vid { transition: none; }
+}
+
+/* ---------- Handwritten type and badge-style cards (matches the logo and printed menus) ---------- */
+h2, .menu-card h3, .venue h3, .els h3, .course-name {
+  font-family: var(--script); font-weight: 400; font-stretch: normal; letter-spacing: 0; text-transform: none;
+}
+h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
+.shift h2 { font-size: clamp(1.9rem, 4.8vw, 3.6rem); line-height: 1.55; max-width: 22ch; }
+.label { font-weight: 500; letter-spacing: 0.14em; }
+.tagline { font-weight: 400; }
+.oval, .item-price, .slots dd, .hours { font-family: var(--body); font-weight: 600; font-stretch: normal; letter-spacing: 0; }
+.btn { text-transform: none; letter-spacing: 0.01em; font-size: 1rem; }
+.hero-photos img, .vid { border-radius: 20px; }
+
+.menus h2 { text-align: center; }
+.menu-card {
+  align-items: center; text-align: center; gap: 14px;
+  padding: clamp(36px, 5vw, 56px) clamp(26px, 4vw, 52px);
+  background: color-mix(in srgb, var(--uv) 26%, var(--night));
+  border: 0;
+  border-radius: 28px;
+  outline: 1.5px solid color-mix(in srgb, var(--cyan) 45%, transparent);
+  outline-offset: -12px;
+  box-shadow: 0 30px 90px -50px color-mix(in srgb, var(--uv) 95%, transparent);
+}
+.menu-card h3 {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 2.7rem); line-height: 1.55;
+  color: var(--pink);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--pink) 45%, transparent);
+}
+.divider { display: block; width: 190px; max-width: 70%; height: auto; margin-top: -16px; fill: none; stroke: var(--cyan); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.menu-card > .label { margin-top: -2px; }
+.course { justify-items: center; }
+.course-name { font-size: 1.5rem; line-height: 1.6; color: var(--cyan); margin-bottom: 0 !important; }
+.dish { font-weight: 500; }
+.desc { margin-inline: auto; }
+.extras { justify-content: center; }
+.prices { justify-items: center; width: 100%; }
+.price { justify-content: center; }
+.free { justify-self: center; }
+.oval { border-width: 2.5px; }
+.carte { width: 100%; text-align: left; margin-top: 8px; }
+.carte .course { justify-items: stretch; }
+.carte .course-name { text-align: center; margin-bottom: 6px !important; }
+.item-row { grid-template-columns: minmax(0, max-content) minmax(14px, 1fr) auto; align-items: end; column-gap: 10px; }
+.lead { height: 0; margin-bottom: 0.5em; border-bottom: 2px dotted color-mix(in srgb, var(--cyan) 50%, transparent); }
+.item .desc { margin-inline: 0; }
+.menu-key { text-align: center; }
+
+.els h3 { margin-top: 8px; font-size: 1.3rem; line-height: 1.6; color: var(--pink-pale); }
+.door {
+  border: 0;
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--uv) 22%, var(--night));
+  outline: 1.5px solid color-mix(in srgb, var(--cyan) 40%, transparent);
+  outline-offset: -12px;
+}
+.venue h3 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); line-height: 1.6; color: var(--pink-pale); }
+.shift { background: color-mix(in srgb, var(--uv) 16%, var(--night)); }
+</style>
+</head>
+<body>
+<header class="hero">
+  <img class="leaf leaf-tl" src="images/leaf-tl.webp" alt="" aria-hidden="true">
+  <img class="leaf leaf-br" src="images/leaf-br.webp" alt="" aria-hidden="true">
+
+  <div class="wrap">
+    <div class="topbar">
+      <span><strong>Hermannin Rantatie 25A</strong> · Verkkosaari, Helsinki</span>
+      
+    </div>
+  </div>
+
+  <div class="wrap hero-inner">
+    <h1 class="logo"><img src="images/logo.webp" width="964" height="858" alt="Bún Chả with Sáng" lang="vi"></h1>
+    <div class="hero-copy">
+      <p class="tagline" lang="vi"><q>Bún Chả with Sáng</q> là sự kết hợp giữa món bún chả Việt Nam và nghệ thuật ánh sáng Phần Lan.</p>
+      <div class="hero-meta">
+        <p class="credit">In collaboration with <b>Janne Parviainen</b></p>
+        <p class="label">Dining with the lights</p>
+      </div>
+      <a class="btn btn-solid" href="#book">Book a table
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+      </a>
+    </div>
+    <div class="hero-photos">
+      <figure class="hp-main">
+        <img src="images/sang-bun-cha.jpg" width="1600" height="902" alt="A smiling woman holding a plate of bún chả with rice noodles, herbs and bean sprouts, in front of a window covered in light-art figures">
+      </figure>
+      <figure class="hp-dish">
+        <img src="images/bun-cha.jpg" width="1400" height="791" alt="Bún chả: grilled pork patty in broth with carrot and herbs, served with rice noodles, bean sprouts, lettuce, mint and chilli on a blue-speckled plate" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="menus" id="menus">
+    <div class="wrap">
+      <h2>Menus</h2>
+      <div class="menu-cards">
+        <article class="menu-card">
+          <h3>Lunch Offer</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">10.11 – 20.11</p>
+          <div class="course">
+            <p class="dish" lang="vi">Bún Chả</p>
+            <p class="desc">Traditional Hanoi-style charcoal-grilled pork.</p>
+            <p class="or">or</p>
+            <p class="dish"><span lang="vi">Bún Chả</span> Mushrooms (V)</p>
+            <p class="desc">A vegan twist on the Hanoi classic, featuring flavourful charcoal-grilled mushrooms.</p>
+          </div>
+          <p class="extras"><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 11a4.5 4.5 0 1 1 9 0z"/><path d="M7.5 11 12 21l4.5-10"/><path d="M9.5 14.5l4-2M10.8 17.5l2.4-1.2"/></svg><span>+ Gelato of the day <span class="desc-inline">(vegan/non vegan)</span></span></span><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M4 21h14"/><path d="M9 3.5c-1 1.2 1 2 0 3.3M12.5 3.5c-1 1.2 1 2 0 3.3"/></svg>+ Coffee</span></p>
+          <div class="prices">
+            <div class="price"><span class="oval">15.50€</span><s>Norm. 25€</s></div>
+            <p class="free">Menu is gluten free / lactose free</p>
+            <p class="tag">#bunchawithsang</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3>Fine Dining</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">3-course menu</p>
+          <div class="course">
+            <p class="course-name">Starter</p>
+            <p class="dish">Crispy Chicken Wonton</p>
+            <p class="or">or</p>
+            <p class="dish">Summer Rolls <span class="desc-inline">(smoked salmon / tofu)</span></p>
+          </div>
+          <div class="course">
+            <p class="course-name">Main course</p>
+            <p class="dish" lang="vi">Bún Chả</p>
+            <p class="or">or</p>
+            <p class="dish"><span lang="vi">Bún Chả</span> Mushroom (V)</p>
+          </div>
+          <div class="course">
+            <p class="course-name">Dessert</p>
+            <p class="dish">Gelato of the day</p>
+          </div>
+          <p class="extras"><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h14l-7 8z"/><path d="M11 13v7M7.5 20.5h7"/><circle cx="18.5" cy="4.5" r="2"/></svg>+ 1 Margarita 0%</span></p>
+          <div class="prices">
+            <div class="price"><span class="oval">50€</span><span class="price-note">10% discount opening week<br>10.11 – 20.11</span></div>
+            <div class="price"><span class="oval">25€</span><span class="price-note price-main" lang="vi">Bún Chả only</span></div>
+            <p class="tag">#bunchawithsang</p>
+          </div>
+        </article>
+        <article class="menu-card menu-wide">
+          <h3>Fine Dining</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">À la carte</p>
+          <div class="carte">
+            <div class="carte-col">
+              <div class="course">
+                <p class="course-name">Starter</p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">1. Summer Rolls</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="desc">Dill smoked salmon / Thai basil smoked tofu × 2 kpl.<br>Fresh herbs – mint, coriander, basil, dill, protein with dip of your choice: vegan peanut sauce, vegan/non vegan fish sauce.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">2. Crispy Wonton Chicken</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="desc">5 kpl with housemade classic sweet &amp; sour chili sauce.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">3. Vegan Kimchi</span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
+              </div>
+                </div>
+              </div>
+              <div class="course">
+                <p class="course-name">Main course</p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish"><span lang="vi">Bún Chả</span> – Pork Classic / Mushrooms / Tofu Set</span><span class="lead" aria-hidden="true"></span><span class="item-price">€25</span></p>
+                <p class="desc">Mix exotic herbs &amp; salad, bean sprouts, rice noodle, sweet &amp; sour fish/non fish sauce.</p>
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="carte-col">
+              <div class="course">
+                <p class="course-name">Dessert</p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Gelato of the Day</span><span class="lead" aria-hidden="true"></span><span class="item-price">1 scoop €5<br>2 scoops €9</span></p>
+                <p class="desc">or chocolate / vanilla / matcha / strawberry / banana bread / mango.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Soufflé Pancakes</span><span class="lead" aria-hidden="true"></span><span class="item-price">€10</span></p>
+                <p class="desc">Biscoff / chocolate / matcha / UBE / berries / banana or mango salted caramel.</p>
+              </div>
+                </div>
+              </div>
+              <div class="course">
+                <p class="course-name">Drinks</p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Creamy Strawberry Margarita 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">London dry Gin Tonic 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Sparkling 0% <span class="desc-inline">(25cl)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Chardonnay 0% <span class="desc-inline">(25cl)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€7</span></p>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="tag">#bunchawithsang</p>
+        </article>
+      </div>
+      <p class="menu-key">(V) vegan</p>
+    </div>
+  </section>
+
+  <section class="elements" id="experience">
+    <div class="wrap">
+      <h2>Four elements. <span>One experience.</span></h2>
+      <ul class="els">
+        <li>
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <path d="M8 26h36a18 14 0 0 1-36 0z"/>
+            <path d="M19 40h14"/>
+            <path d="M30 22 44 8M34 22 47 11"/>
+            <path d="M17 19c-2-3 2-4 0-8M23 19c-2-3 2-4 0-8"/>
+          </svg>
+          <h3 lang="vi">Bún chả</h3>
+          <p>One signature dish, grilled over charcoal and perfected with exceptional ingredients and refined techniques.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <path d="M6 42h40"/>
+            <rect x="12" y="32" width="28" height="8" rx="4"/>
+            <rect x="13" y="23" width="26" height="8" rx="4"/>
+            <rect x="14" y="14" width="24" height="8" rx="4"/>
+            <path d="M22 14c0-4 8-4 8 0"/>
+            <circle cx="26" cy="8" r="1.6"/>
+          </svg>
+          <h3>Signature soufflé dessert</h3>
+          <p>Delicate, cloud-like pancakes with seasonal flavours and house-made ice cream.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <path d="M9 10h30L24 28z"/>
+            <path d="M24 28v15M16 44h16"/>
+            <path d="M14 15h20"/>
+            <circle cx="40" cy="9" r="5"/>
+            <path d="M40 4v10"/>
+          </svg>
+          <h3>0% Free spirit</h3>
+          <p>Creative, sophisticated alcohol-free cocktails. Full flavour, zero alcohol.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <circle cx="26" cy="26" r="9"/>
+            <path d="M26 5v7M26 40v7M5 26h7M40 26h7M11 11l5 5M36 36l5 5M41 11l-5 5M16 36l-5 5"/>
+          </svg>
+          <h3>Finnish light art</h3>
+          <p>An immersive artistic atmosphere created in collaboration with Janne Parviainen, where light, colour and sound become part of the dining experience.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="videos" id="videos">
+    <div class="wrap">
+      <h2>Videos</h2>
+      <div class="vids">
+        <a class="vid vid-wide" href="https://www.youtube.com/watch?v=gOUjVn28HQI" target="_blank" rel="noopener" aria-label="Watch the video on YouTube">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          <span class="vid-meta"><span class="label">Video</span><span>Watch on YouTube ↗</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shift" id="space">
+    <div class="wrap">
+      <h2>From casual dining <span>to an extraordinary experience.</span></h2>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <h2>Book a table</h2>
+      <div class="book-frame">
+        <script async src="https://pos.sciometa.com/widget/reserve.js" data-store="cb84463" data-lang="auto"></script>
+      </div>
+      <p class="book-note">Booking form not showing? <a href="https://pos.sciometa.com/embed/reserve/cb84463?lang=auto" target="_blank" rel="noopener">Open it here</a>.</p>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="door">
+        <div class="times">
+          <p class="label">Opening hours</p>
+          <div class="venue">
+            <h3>Lunch</h3>
+            <dl class="slots">
+              <div><dt><b>Mon–Fri</b></dt><dd>10.30–14.00</dd></div>
+            </dl>
+          </div>
+          <div class="venue">
+            <h3>Dinner</h3>
+            <dl class="slots">
+              <div><dt><b>Mon–Thu</b></dt><dd>17.00–21.00</dd></div>
+              <div><dt><b>Friday</b></dt><dd>17.00–22.00</dd></div>
+              <div><dt><b>Saturday</b></dt><dd>12.00–22.00</dd></div>
+              <div><dt><b>Sunday</b></dt><dd>12.00–20.00</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="door-end">
+          <div class="place">
+            <p class="label">Location</p>
+            <p><strong lang="vi">Bún Chả with Sáng</strong><br>Hermannin Rantatie 25A, Verkkosaari, Helsinki</p>
+          </div>
+          <div class="place">
+            <p class="label">Instagram</p>
+            <a class="ig" href="https://www.instagram.com/bunchawithsang/" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"/></svg>
+              @Bunchawithsang
+            </a>
+          </div>
+          
+          <div class="btns">
+            <a class="btn btn-solid" href="#book">Book a table
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+            </a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Hermannin%20Rantatie%2025A%2C%20Helsinki" target="_blank" rel="noopener">Get directions
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-meta">
+      <p><span lang="vi">Bún Chả</span> with <span lang="vi">Sáng</span> · In collaboration with Janne Parviainen</p>
+      <p>Hermannin Rantatie 25A, Verkkosaari, Helsinki</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
