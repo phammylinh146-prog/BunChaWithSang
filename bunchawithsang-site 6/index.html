@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&family=Playpen+Sans:wght@300..700&display=swap">
 <style>
-/* Layout: a night walk down one street. The round badge logo among its blue leaves, the two food photos, the menus as badge-like cards, the four elements, one statement line, then the opening-hours card. Colours sampled from the badge logo; handwritten type like the printed menus. Single dark look by choice. */
+/* Layout: a night walk down one street. The round badge logo among its blue leaves, the two food photos, the menus as badge-like cards, the four elements, then the opening-hours card. Colours sampled from the badge logo; handwritten type like the printed menus. Single dark look by choice. */
 :root {
   --night: #0e0f27;
   --night-2: #161a4d;
@@ -182,7 +182,7 @@ h2 {
 /* ---------- Menus ---------- */
 .menus { padding-block: clamp(8px, 2vw, 24px) clamp(40px, 6vw, 72px); }
 .menus h2 { margin-bottom: clamp(24px, 4vw, 40px); }
-.menu-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.menu-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; }
 @media (min-width: 820px) { .menu-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .menu-card {
   min-width: 0;
@@ -499,6 +499,38 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
 }
 .venue h3 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); line-height: 1.6; color: var(--pink-pale); }
 .shift { background: color-mix(in srgb, var(--uv) 16%, var(--night)); }
+
+/* ---------- Menu language switch and lunch details ---------- */
+.menus[data-lang="en"] [data-l="fi"], .menus[data-lang="fi"] [data-l="en"] { display: none !important; }
+.lang-switch {
+  display: flex; justify-content: center; gap: 4px;
+  width: max-content; max-width: 100%;
+  margin: calc(-1 * clamp(12px, 2vw, 24px)) auto clamp(24px, 4vw, 36px);
+  padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 45%, transparent);
+  border-radius: 999px;
+}
+.lang-switch button {
+  font: inherit; font-size: 0.9375rem; font-weight: 600;
+  color: var(--ink); background: transparent;
+  border: 0; border-radius: 999px;
+  padding: 7px 18px; min-height: 40px;
+  cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] { background: var(--cyan); color: var(--night); }
+.lang-switch button:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+.menu-card .course + .or, .menu-card .or + .dish { margin-top: 6px !important; }
+.new {
+  display: inline-block; vertical-align: 0.2em;
+  margin-right: 6px; padding: 1px 9px;
+  border: 1.5px solid var(--pink); border-radius: 50%;
+  color: var(--pink); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  transform: rotate(-6deg);
+}
+.extras { flex-direction: column; align-items: center; gap: 10px; }
+.extras > span { text-align: left; }
+.allergy { margin: 0; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.allergy svg { width: 20px; height: 20px; fill: none; stroke: var(--pink-pale); stroke-width: 1.6; stroke-linecap: round; }
 </style>
 </head>
 <body>
@@ -537,25 +569,36 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
 </header>
 
 <main>
-  <section class="menus" id="menus">
+  <section class="menus" id="menus" data-lang="en">
     <div class="wrap">
       <h2>Menus</h2>
+      <div class="lang-switch" role="group" aria-label="Menu language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="fi" aria-pressed="false" lang="fi">Suomi</button>
+      </div>
       <div class="menu-cards">
         <article class="menu-card">
           <h3>Lunch Offer</h3>
           <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
           <p class="label">10.11 – 20.11</p>
           <div class="course">
-            <p class="dish" lang="vi">Bún Chả</p>
-            <p class="desc">Traditional Hanoi-style charcoal-grilled pork.</p>
-            <p class="or">or</p>
+            <p class="dish"><span lang="vi">Bún Chả</span></p>
+            <p class="desc" data-l="en">A traditional Hanoi-style set of charcoal-grilled pork (pork belly and minced pork patty) in a sweet-sour sauce, served with fresh salad and aromatic herbs (coriander, Vietnamese balm, mint, perilla), bean sprouts and rice vermicelli.</p>
+            <p class="desc" data-l="fi" lang="fi">Perinteinen hanoilainen annos, jossa hiiligrillattua porsaan kylkeä ja jauhelihapihviä makean-happamassa kastikkeessa. Tarjoillaan raikkaan salaatin ja aromaattisten yrttien (korianteri, vietnamlainen melissa, minttu, perilla), pavunversojen ja riisinuudelien kanssa.</p>
+            <p class="or"><span data-l="en">or</span><span data-l="fi" lang="fi">tai</span></p>
             <p class="dish"><span lang="vi">Bún Chả</span> Mushrooms (V)</p>
-            <p class="desc">A vegan twist on the Hanoi classic, featuring flavourful charcoal-grilled mushrooms.</p>
+            <p class="desc" data-l="en">A vegan Hanoi-style set of charcoal-grilled king oyster mushrooms, traditionally marinated, and minced mushroom patties in a sweet-sour sauce, served with fresh salad and aromatic herbs (coriander, Vietnamese balm, mint, perilla), bean sprouts and rice vermicelli.</p>
+            <p class="desc" data-l="fi" lang="fi">Vegaaninen hanoilainen annos, jossa perinteisesti marinoituja ja hiiligrillattuja kuningasosterivinokkaita sekä jauhettua sienipihviä makean-happamassa kastikkeessa. Tarjoillaan raikkaan salaatin ja aromaattisten yrttien (korianteri, vietnamlainen melissa, minttu, perilla), pavunversojen ja riisinuudelien kanssa.</p>
+            <p class="or"><span data-l="en">or</span><span data-l="fi" lang="fi">tai</span></p>
+            <p class="dish"><span class="new">New</span> <span lang="vi">Bún Chả</span> Tofu (V)</p>
+            <p class="desc" data-l="en">A vegan Hanoi-style set of tofu and seaweed patties in a sweet-sour sauce, served with fresh salad and aromatic herbs (coriander, Vietnamese balm, mint, perilla), bean sprouts and rice vermicelli.</p>
+            <p class="desc" data-l="fi" lang="fi">Vegaaninen hanoilainen annos, jossa tofu- ja merileväpihvejä makean-happamassa kastikkeessa. Tarjoillaan raikkaan salaatin ja aromaattisten yrttien (korianteri, vietnamlainen melissa, minttu, perilla), pavunversojen ja riisinuudelien kanssa.</p>
           </div>
-          <p class="extras"><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 11a4.5 4.5 0 1 1 9 0z"/><path d="M7.5 11 12 21l4.5-10"/><path d="M9.5 14.5l4-2M10.8 17.5l2.4-1.2"/></svg><span>+ Gelato of the day <span class="desc-inline">(vegan/non vegan)</span></span></span><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M4 21h14"/><path d="M9 3.5c-1 1.2 1 2 0 3.3M12.5 3.5c-1 1.2 1 2 0 3.3"/></svg>+ Coffee</span></p>
+          <p class="extras"><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 11a4.5 4.5 0 1 1 9 0z"/><path d="M7.5 11 12 21l4.5-10"/><path d="M9.5 14.5l4-2M10.8 17.5l2.4-1.2"/></svg><span>+ Gelato of the day <span class="desc-inline">(vegan / non vegan)</span></span></span><span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h11v4a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M4 21h14"/><path d="M9 3.5c-1 1.2 1 2 0 3.3M12.5 3.5c-1 1.2 1 2 0 3.3"/></svg><span>+ Coffee or Tea <span class="desc-inline">or pay 2€ for a Cappuccino or Latte</span></span></span></p>
           <div class="prices">
             <div class="price"><span class="oval">15.50€</span><s>Norm. 25€</s></div>
             <p class="free">Menu is gluten free / lactose free</p>
+            <p class="allergy"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v6"/><circle cx="12" cy="16.6" r="0.6" fill="currentColor"/></svg>Inform your allergies.</p>
             <p class="tag">#bunchawithsang</p>
           </div>
         </article>
@@ -593,59 +636,74 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
           <div class="carte">
             <div class="carte-col">
               <div class="course">
-                <p class="course-name">Starter</p>
+                <p class="course-name"><span data-l="en">Starter</span><span data-l="fi" lang="fi">Alkupalat</span></p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish">1. Summer Rolls</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
-                <p class="desc">Dill smoked salmon / Thai basil smoked tofu × 2 kpl.<br>Fresh herbs – mint, coriander, basil, dill, protein with dip of your choice: vegan peanut sauce, vegan/non vegan fish sauce.</p>
+                <p class="item-row"><span class="dish"><span data-l="en">1. Summer Rolls</span><span data-l="fi" lang="fi">1. Kesärullat</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="desc" data-l="en">Dill smoked salmon / Thai basil smoked tofu × 2 pcs.<br>Fresh herbs – mint, coriander, basil, dill, with dip of your choice: vegan peanut sauce, vegan/non vegan fish sauce.</p>
+                <p class="desc" data-l="fi" lang="fi">Tillisavulohi / thaibasilikalla maustettu savutofu × 2 kpl.<br>Tuoreet yrtit – minttu, korianteri, basilika, tilli, valitsemasi kastike: vegaaninen maapähkinäkastike tai vegaaninen / ei-vegaaninen kalakastike.</p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">2. Crispy Wonton Chicken</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
-                <p class="desc">5 kpl with housemade classic sweet &amp; sour chili sauce.</p>
+                <p class="item-row"><span class="dish"><span data-l="en">2. Crispy Wonton Chicken</span><span data-l="fi" lang="fi">2. Rapeat wontonit kanalla</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="desc" data-l="en">5 pcs with housemade classic sweet &amp; sour chili sauce.</p>
+                <p class="desc" data-l="fi" lang="fi">5 kpl, talon makea-hapan chilikastike.</p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">3. Vegan Kimchi</span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
+                <p class="item-row"><span class="dish"><span data-l="en">3. Vegan Kimchi</span><span data-l="fi" lang="fi">3. Vegaaninen kimchi</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish"><span data-l="en">4. Gochujang Fried Chicken Wings</span><span data-l="fi" lang="fi">4. Gochujang-kanansiivet</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="desc" data-l="en">Fried chicken wings 4 pcs with housemade sweet &amp; savoury gochujang sauce.</p>
+                <p class="desc" data-l="fi" lang="fi">4 kpl, rapeat siivet talon makeassa ja suolaisessa gochujang-kastikkeessa.</p>
               </div>
                 </div>
               </div>
               <div class="course">
-                <p class="course-name">Main course</p>
+                <p class="course-name"><span data-l="en">Main course</span><span data-l="fi" lang="fi">Pääruoat</span></p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish"><span lang="vi">Bún Chả</span> – Pork Classic / Mushrooms / Tofu Set</span><span class="lead" aria-hidden="true"></span><span class="item-price">€25</span></p>
-                <p class="desc">Mix exotic herbs &amp; salad, bean sprouts, rice noodle, sweet &amp; sour fish/non fish sauce.</p>
+                <p class="item-row"><span class="dish"><span data-l="en"><span lang="vi">Bún Chả</span> – Pork Classic / Mushrooms / Tofu Set</span><span data-l="fi" lang="fi"><span lang="vi">Bún Chả</span> – possu klassinen / sienet / tofu -setti</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€25</span></p>
+                <p class="desc" data-l="en">Mix exotic herbs &amp; salad, bean sprouts, rice noodle, sweet &amp; sour fish/non fish sauce.</p>
+                <p class="desc" data-l="fi" lang="fi">Tuoreita yrttejä ja salaattia, pavunversoja, riisinuudeleita sekä makea-hapan kalakastike tai vegaaninen kastike.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish"><span data-l="en">Grill Pork Cutlet with Rice Set</span><span data-l="fi" lang="fi">Grillattu porsaanleike riisisetillä</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€25</span></p>
+                <p class="desc" data-l="en">Grilled pork cutlet with steamed rice, sunny-side-up egg, pickled daikon &amp; carrot, scallion oil and sweet &amp; sour fish sauce.</p>
+                <p class="desc" data-l="fi" lang="fi">Grillattu porsaanleike, höyrytetty riisi, paistettu kananmuna, suolakurkku (daikon) ja porkkana, sipuliöljy sekä makea-hapan kalakastike.</p>
               </div>
                 </div>
               </div>
             </div>
             <div class="carte-col">
               <div class="course">
-                <p class="course-name">Dessert</p>
+                <p class="course-name"><span data-l="en">Dessert</span><span data-l="fi" lang="fi">Jälkiruoat</span></p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish">Gelato of the Day</span><span class="lead" aria-hidden="true"></span><span class="item-price">1 scoop €5<br>2 scoops €9</span></p>
-                <p class="desc">or chocolate / vanilla / matcha / strawberry / banana bread / mango.</p>
+                <p class="item-row"><span class="dish"><span data-l="en">Gelato of the Day</span><span data-l="fi" lang="fi">Päivän gelato</span></span><span class="lead" aria-hidden="true"></span><span class="item-price"><span data-l="en">1 scoop €5<br>2 scoops €9</span><span data-l="fi" lang="fi">1 pallo €5<br>2 palloa €9</span></span></p>
+                <p class="desc" data-l="en">or chocolate / vanilla / matcha / strawberry / banana bread / mango.</p>
+                <p class="desc" data-l="fi" lang="fi">tai suklaa / vanilja / matcha / mansikka / banaanileipä / mango.</p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">Soufflé Pancakes</span><span class="lead" aria-hidden="true"></span><span class="item-price">€10</span></p>
-                <p class="desc">Biscoff / chocolate / matcha / UBE / berries / banana or mango salted caramel.</p>
+                <p class="item-row"><span class="dish"><span data-l="en">Soufflé Pancakes</span><span data-l="fi" lang="fi">Soufflé-pannukakut</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€10</span></p>
+                <p class="desc" data-l="en">Biscoff / chocolate / matcha / UBE / berries / banana or mango salted caramel.</p>
+                <p class="desc" data-l="fi" lang="fi">Biscoff / suklaa / matcha / UBE / marjat / banaani tai mango-suolakinuski.</p>
               </div>
                 </div>
               </div>
               <div class="course">
-                <p class="course-name">Drinks</p>
+                <p class="course-name"><span data-l="en">Drinks</span><span data-l="fi" lang="fi">Juomat</span></p>
                 <div class="items">
               <div class="item">
-                <p class="item-row"><span class="dish">Creamy Strawberry Margarita 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="item-row"><span class="dish"><span data-l="en">Creamy Strawberry Margarita 0%</span><span data-l="fi" lang="fi">Kermainen mansikkamargarita 0%</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">London dry Gin Tonic 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
+                <p class="item-row"><span class="dish">London Dry Gin Tonic 0%</span><span class="lead" aria-hidden="true"></span><span class="item-price">€12</span></p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">Sparkling 0% <span class="desc-inline">(25cl)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
+                <p class="item-row"><span class="dish"><span data-l="en">Sparkling 0% <span class="desc-inline">(25cl)</span></span><span data-l="fi" lang="fi">Kuohuviini 0% <span class="desc-inline">(25 cl)</span></span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8</span></p>
               </div>
               <div class="item">
-                <p class="item-row"><span class="dish">Chardonnay 0% <span class="desc-inline">(25cl)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€7</span></p>
+                <p class="item-row"><span class="dish"><span data-l="en">Chardonnay 0% <span class="desc-inline">(25cl)</span></span><span data-l="fi" lang="fi">Chardonnay 0% <span class="desc-inline">(25 cl)</span></span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€7</span></p>
               </div>
                 </div>
               </div>
@@ -654,7 +712,7 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
           <p class="tag">#bunchawithsang</p>
         </article>
       </div>
-      <p class="menu-key">(V) vegan</p>
+      <p class="menu-key"><span data-l="en">(V) vegan</span><span data-l="fi" lang="fi">(V) vegaaninen</span></p>
     </div>
   </section>
 
@@ -719,12 +777,6 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
     </div>
   </section>
 
-  <section class="shift" id="space">
-    <div class="wrap">
-      <h2>From casual dining <span>to an extraordinary experience.</span></h2>
-    </div>
-  </section>
-
   <section class="book" id="book">
     <div class="wrap">
       <h2>Book a table</h2>
@@ -743,7 +795,7 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
           <div class="venue">
             <h3>Lunch</h3>
             <dl class="slots">
-              <div><dt><b>Mon–Fri</b></dt><dd>10.30–14.00</dd></div>
+              <div><dt><b>Mon–Fri</b></dt><dd>10.30–14.30</dd></div>
             </dl>
           </div>
           <div class="venue">
@@ -791,5 +843,26 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
     </div>
   </div>
 </footer>
+<script>
+(function () {
+  var sec = document.getElementById('menus');
+  if (!sec) return;
+  var btns = sec.querySelectorAll('.lang-switch button');
+  function show(l) {
+    sec.setAttribute('data-lang', l);
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false'); });
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('menuLang'); } catch (e) {}
+  show(saved === 'fi' || saved === 'en' ? saved : ((navigator.language || '').toLowerCase().indexOf('fi') === 0 ? 'fi' : 'en'));
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var l = b.getAttribute('data-lang');
+      show(l);
+      try { localStorage.setItem('menuLang', l); } catch (e) {}
+    });
+  });
+})();
+</script>
 </body>
 </html>
