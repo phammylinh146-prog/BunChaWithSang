@@ -531,6 +531,23 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
 .extras > span { text-align: left; }
 .allergy { margin: 0; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
 .allergy svg { width: 20px; height: 20px; fill: none; stroke: var(--pink-pale); stroke-width: 1.6; stroke-linecap: round; }
+
+/* ---------- Soufflé pancakes and drinks menus ---------- */
+.cn-note { font-family: var(--body); font-size: 0.875rem; color: var(--muted); vertical-align: 0.15em; }
+.sub-label { margin: 14px 0 6px !important; color: var(--cyan); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-align: left; }
+.free-pink { color: var(--pink-pale); border-color: color-mix(in srgb, var(--pink) 55%, transparent); text-transform: none; letter-spacing: 0.02em; font-size: 1rem; }
+.price-table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
+.price-table thead th { padding: 0 0 6px 14px; text-align: right; color: var(--cyan); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.price-table tbody th { padding: 6px 0; font-weight: 500; text-align: left; }
+.price-table td { padding: 6px 0 6px 14px; text-align: right; white-space: nowrap; font-weight: 600; color: var(--pink-pale); }
+.price-table tbody tr { border-bottom: 1px dotted color-mix(in srgb, var(--cyan) 30%, transparent); }
+.note-line { margin: 0 0 10px !important; font-weight: 600; color: var(--pink-pale); text-align: center; }
+.flavours { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.flavours li { padding: 4px 12px; border: 1px solid color-mix(in srgb, var(--cyan) 35%, transparent); border-radius: 999px; font-size: 0.9375rem; }
+@media (max-width: 480px) {
+  .menu-card { padding-inline: 20px; outline-offset: -9px; border-radius: 22px; }
+  .item-row { column-gap: 8px; }
+}
 </style>
 </head>
 <body>
@@ -711,8 +728,208 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
           </div>
           <p class="tag">#bunchawithsang</p>
         </article>
+        <article class="menu-card menu-wide">
+          <h3>Soufflé Pancakes</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <p class="label">Menu</p>
+          <div class="carte">
+            <div class="carte-col">
+              <div class="course">
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Classic Nordic <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€10.00</span></p>
+                <p class="desc">Soufflé pancakes, cream (matcha, chocolate, strawberry or mango), berries jams/chocolate/matcha/salted caramel.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Salted Caramelised Banana <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, caramelised banana, banana bread gelato/cream, salted caramel sauce.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Very Berries <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, strawberry jam/cream, gelato, fresh strawberries, blueberries, raspberries.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Matcha Fluffy <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€15.00</span></p>
+                <p class="desc">Soufflé pancakes, matcha ganache/cream, gelato, matcha powder.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Majestic Mango <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, mango cream, mango gelato, fresh mango cubes, salted caramel sauce.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Chocolate Lover <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, chocolate cream, chocolate sauce, gelato.</p>
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="carte-col">
+              <div class="course">
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Dubai Chocolate <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€16.00</span></p>
+                <p class="desc">Soufflé pancakes, pistachio ganache, chocolate sauce, strawberries, pistachios crush, kataifi, gelato.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Biscoff <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, biscoff cream, sauce, crumbs, gelato.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Tiramisu <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€15.00</span></p>
+                <p class="desc">Soufflé pancakes, gelato, mascarpone cream, chocolate powder, single espresso.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Ube <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, ube cream, ube gelato, ube syrup.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Crème Brûlée <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Crème brûlée cream, caramel sauce, mix fresh fruits.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">English Breakfast <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€16.00</span></p>
+                <p class="desc">Soufflé pancakes, baked beans, grilled tomato, mushroom, hollandaise sauce.<br>Choice of protein: 3 strips of bacon / avocado / halloumi.</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Bacon &amp; Egg <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€14.00</span></p>
+                <p class="desc">Soufflé pancakes, 4 strips of bacon, two eggs, purée, maple syrup.</p>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prices">
+            <p class="free free-pink">Gluten-free “Clouds” Soufflé Pancakes +€2</p>
+            <p class="tag">#bunchawithsang</p>
+          </div>
+        </article>
+        <article class="menu-card menu-wide">
+          <h3>Drinks &amp; Gelato</h3>
+          <svg class="divider" viewBox="0 0 220 22" aria-hidden="true"><path d="M6 13c46-5 104-6 166-3"/><path d="M172 10c5-8 17-11 26-7c-5 9-17 12-26 7z"/><path d="M174 10c8-2 15-4 22-6"/><path d="M180 11c3 5 11 8 19 6c-4-6-12-8-19-6z"/></svg>
+          <div class="carte">
+            <div class="carte-col">
+              <div class="course">
+                <p class="course-name">Coffee <span class="cn-note">(L)</span></p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Espresso</span><span class="lead" aria-hidden="true"></span><span class="item-price">€3.00</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Espresso Macchiato</span><span class="lead" aria-hidden="true"></span><span class="item-price">€4.00</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Latte</span><span class="lead" aria-hidden="true"></span><span class="item-price">€4.80</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Cappuccino</span><span class="lead" aria-hidden="true"></span><span class="item-price">€4.90</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Flat White</span><span class="lead" aria-hidden="true"></span><span class="item-price">€4.90</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Americano</span><span class="lead" aria-hidden="true"></span><span class="item-price">€4.20</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Vietnamese Coffee <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€5.50</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Ube Latte</span><span class="lead" aria-hidden="true"></span><span class="item-price">€6.00</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Latte Banana Bread</span><span class="lead" aria-hidden="true"></span><span class="item-price">€5.00</span></p>
+              </div>
+                </div>
+                <p class="sub-label">Ice only</p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Vietnamese Salt Coffee <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€6.50</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Tiramisu Coffee Latte <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8.00</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Biscoff Coffee Latte <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8.00</span></p>
+              </div>
+                </div>
+              </div>
+              <div class="course">
+                <p class="course-name">Smoothies <span class="cn-note">(L)</span></p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Berry Breeze</span><span class="lead" aria-hidden="true"></span><span class="item-price">€7.50</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Tropical Green Energizer</span><span class="lead" aria-hidden="true"></span><span class="item-price">€7.50</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Peanut Butter Power</span><span class="lead" aria-hidden="true"></span><span class="item-price">€6.50</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Garden Boost</span><span class="lead" aria-hidden="true"></span><span class="item-price">€8.00</span></p>
+              </div>
+                </div>
+              </div>
+            </div>
+            <div class="carte-col">
+              <div class="course">
+                <p class="course-name">Matcha <span class="cn-note">(L) · Organic</span></p>
+                <table class="price-table">
+                  <thead><tr><td></td><th scope="col">Hot</th><th scope="col">Ice</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Matcha Latte</th><td>€6.50</td><td>€7.50</td></tr>
+                    <tr><th scope="row">Mango Matcha Latte</th><td>€6.50</td><td>€7.50</td></tr>
+                    <tr><th scope="row">Strawberry Matcha Latte</th><td>€6.50</td><td>€7.50</td></tr>
+                    <tr><th scope="row">Cold Foam Matcha Latte</th><td>€7.50</td><td>€8.50</td></tr>
+                    <tr><th scope="row">Banana Bread Matcha Latte</th><td>€7.50</td><td>€8.50</td></tr>
+                    <tr><th scope="row">Ube Matcha Latte</th><td>€6.50</td><td>€7.50</td></tr>
+                    <tr><th scope="row">Hot Chocolate Matcha</th><td>€7.50</td><td>€8.50</td></tr>
+                  </tbody>
+                </table>
+                <p class="sub-label">Ice only</p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Biscoff Matcha <span class="desc-inline">(Organic)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8.50</span></p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Tiramisu Matcha Latte <span class="desc-inline">(L)</span></span><span class="lead" aria-hidden="true"></span><span class="item-price">€8.50</span></p>
+              </div>
+                </div>
+              </div>
+              <div class="course">
+                <p class="course-name">Gelato <span class="cn-note">(L)</span></p>
+                <p class="note-line">€5 for 1 scoop · €9 for 2 scoops</p>
+                <ul class="flavours"><li>Vanilla <span class="desc-inline">(L)</span></li><li>Mango <span class="desc-inline">(L)</span></li><li>Strawberry <span class="desc-inline">(L)</span></li><li>Matcha <span class="desc-inline">(Organic)</span> <span class="desc-inline">(L)</span></li><li>Ube <span class="desc-inline">(L)</span></li><li>Banana Bread <span class="desc-inline">(L)</span></li><li>Chocolate <span class="desc-inline">(L)</span></li></ul>
+              </div>
+              <div class="course">
+                <p class="course-name">Affogato <span class="cn-note">(L)</span></p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">1 scoop of ice cream + single shot espresso</span><span class="lead" aria-hidden="true"></span><span class="item-price">€8.00</span></p>
+              </div>
+                </div>
+              </div>
+              <div class="course">
+                <p class="course-name">Hot Chocolate <span class="cn-note">(L)</span></p>
+                <div class="items">
+              <div class="item">
+                <p class="item-row"><span class="dish">Classic Hot Chocolate</span><span class="lead" aria-hidden="true"></span><span class="item-price">€5.50</span></p>
+                <p class="desc">with whipped cream</p>
+              </div>
+              <div class="item">
+                <p class="item-row"><span class="dish">Matcha Hot Chocolate</span><span class="lead" aria-hidden="true"></span><span class="item-price">€7.50</span></p>
+                <p class="desc">with whipped cream</p>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prices">
+            <p class="free">Menu is gluten free / lactose free</p>
+            <p class="tag">#bunchawithsang</p>
+          </div>
+        </article>
       </div>
-      <p class="menu-key"><span data-l="en">(V) vegan</span><span data-l="fi" lang="fi">(V) vegaaninen</span></p>
+      <p class="menu-key"><span data-l="en">(V) vegan · (L) lactose-free</span><span data-l="fi" lang="fi">(V) vegaaninen · (L) laktoositon</span></p>
     </div>
   </section>
 
@@ -814,6 +1031,13 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
             <p><strong lang="vi">Bún Chả with Sáng</strong><br>Hermannin Rantatie 25A, Verkkosaari, Helsinki</p>
           </div>
           <div class="place">
+            <p class="label">Phone</p>
+            <a class="ig" href="tel:+358503054957">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.6 4.2-2.2 1.4a11 11 0 0 0 6.5 6.5l1.4-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>
+              050 305 4957
+            </a>
+          </div>
+          <div class="place">
             <p class="label">Instagram</p>
             <a class="ig" href="https://www.instagram.com/bunchawithsang/" target="_blank" rel="noopener">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"/></svg>
@@ -839,7 +1063,7 @@ h2 { font-size: clamp(1.8rem, 4.4vw, 3.1rem); line-height: 1.55; }
   <div class="wrap">
     <div class="foot-meta">
       <p><span lang="vi">Bún Chả</span> with <span lang="vi">Sáng</span> · In collaboration with Janne Parviainen</p>
-      <p>Hermannin Rantatie 25A, Verkkosaari, Helsinki</p>
+      <p>Hermannin Rantatie 25A, Verkkosaari, Helsinki · 050 305 4957</p>
     </div>
   </div>
 </footer>
